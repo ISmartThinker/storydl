@@ -35,9 +35,8 @@ async def ensure_client():
     with client_lock:
         if user is None:
             try:
-                os.makedirs("/tmp", exist_ok=True)
                 user = Client(
-                    "stories_user_session",
+                    "SmartUserBot",
                     session_string=SESSION_STRING,
                     workdir="/tmp",
                     in_memory=True,
@@ -64,9 +63,8 @@ async def ensure_client():
         except Exception as e:
             logger.error(f"Failed to check/restart client: {str(e)}")
             try:
-                os.makedirs("/tmp", exist_ok=True)
                 user = Client(
-                    "stories_user_session",
+                    "SmartUserBot",
                     session_string=SESSION_STRING,
                     workdir="/tmp",
                     in_memory=True,
@@ -420,7 +418,7 @@ async def download_story(username: str, storyid: int):
                 thumbnail_file_type=FileType.PHOTO,
                 thumbnail_size=""
             )
-            file_path = await user.download_media(file_id_obj.encode())
+            file_path = await user.download_media(file_id_obj.encode(), file_name="/tmp/")
             
         elif hasattr(media, 'document'):
             doc = media.document
@@ -443,7 +441,7 @@ async def download_story(username: str, storyid: int):
                 thumbnail_file_type=FileType.PHOTO,
                 thumbnail_size=""
             )
-            file_path = await user.download_media(file_id_obj.encode())
+            file_path = await user.download_media(file_id_obj.encode(), file_name="/tmp/")
         else:
             return JSONResponse(content={
                 "success": False,
