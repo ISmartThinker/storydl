@@ -9,7 +9,9 @@ import re
 from datetime import datetime
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi import Request
 from pyrogram import Client
 from pyrogram.raw.functions.stories import GetPeerStories, GetStoriesArchive, GetPinnedStories
 from pyrogram.raw.types import InputPeerUser, InputPeerChannel
@@ -29,6 +31,8 @@ logger = logging.getLogger(__name__)
 
 user = None
 client_lock = threading.Lock()
+
+templates = Jinja2Templates(directory="templates")
 
 async def ensure_client():
     global user
@@ -322,21 +326,9 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Telegram Stories API", version="1.0.0", lifespan=lifespan)
 
-@app.get("/")
-async def root():
-    return {
-        "status": "online",
-        "api": "Telegram Stories API",
-        "version": "1.0.0",
-        "endpoints": {
-            "/api/current?username={}": "Get current active stories",
-            "/api/all?username={}": "Get all stories (active + pinned + archived)",
-            "/api/special?username={}&storyid={}": "Download specific story by ID",
-            "/api/direct?url={}": "Download story from direct Telegram URL"
-        },
-        "api_dev": "@ISmartCoder",
-        "api_channel": "@abirxdhackz"
-    }
+@app.get("/", response_class=HTMLResponse)
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/api/current")
 async def get_current_stories(username: str):
