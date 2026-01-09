@@ -12,7 +12,7 @@
     <link rel="icon" href="https://i.ibb.co/Hh4kF2b/icon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta property="og:title" content="Telegram Stories API">
     <meta property="og:description" content="Premium Telegram Stories downloader and viewer">
     <meta property="og:type" content="website">
@@ -35,6 +35,9 @@
             --glow-gold: 0 0 30px rgba(255, 215, 0, 0.3);
             --glow-cyan: 0 0 30px rgba(0, 255, 245, 0.3);
             --glow-purple: 0 0 30px rgba(157, 78, 221, 0.3);
+            --font-display: 'Outfit', 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Space Grotesk', monospace;
         }
 
         * {
@@ -44,7 +47,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-body);
             background: var(--bg-dark);
             background-image: 
                 radial-gradient(at 20% 10%, rgba(157, 78, 221, 0.15) 0px, transparent 50%),
@@ -152,7 +155,7 @@
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
             font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
@@ -275,7 +278,7 @@
         }
 
         .downloader-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
             font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -640,7 +643,7 @@
             color: #86EFAC;
         }
 
-        /* API Documentation Section */
+        /* API Documentation Section - Enhanced Premium Styling */
         .api-docs-section {
             background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
             border: 1px solid var(--border-color);
@@ -667,48 +670,73 @@
         }
 
         .api-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
+            letter-spacing: -1px;
+        }
+
+        .api-version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(0, 255, 245, 0.2));
+            border: 1px solid var(--accent-purple);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 0.5rem;
         }
 
         .api-subtitle {
+            font-family: var(--font-body);
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
         .api-base-url {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 0.75rem 1.25rem;
-            background: rgba(0, 255, 245, 0.1);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 12px;
+            padding: 0.85rem 1.5rem;
+            background: rgba(0, 255, 245, 0.08);
+            border: 1px solid rgba(0, 255, 245, 0.3);
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
         }
 
         .api-base-url .label {
-            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
             color: var(--accent-cyan);
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .api-base-url code {
-            font-family: 'Space Grotesk', monospace;
+            font-family: var(--font-mono);
             color: var(--primary-gold);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         .api-base-url .copy-btn {
@@ -716,27 +744,35 @@
             border: none;
             color: var(--text-secondary);
             cursor: pointer;
-            padding: 0.25rem;
+            padding: 0.35rem;
             transition: all 0.3s ease;
+            border-radius: 6px;
         }
 
         .api-base-url .copy-btn:hover {
             color: var(--accent-cyan);
+            background: rgba(0, 255, 245, 0.1);
             transform: scale(1.1);
         }
 
+        /* Collapsible Endpoint Cards */
         .endpoint-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .endpoint-card:hover {
+            border-color: rgba(0, 255, 245, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 255, 245, 0.08);
+        }
+
+        .endpoint-card.expanded {
             border-color: var(--accent-cyan);
-            box-shadow: 0 10px 40px rgba(0, 255, 245, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 255, 245, 0.15);
         }
 
         .endpoint-header {
@@ -745,95 +781,217 @@
             gap: 1rem;
             padding: 1.25rem 1.5rem;
             background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid transparent;
             flex-wrap: wrap;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .endpoint-card.expanded .endpoint-header {
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .endpoint-header:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .endpoint-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .endpoint-card.expanded .endpoint-toggle {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-color: transparent;
+            color: var(--bg-dark);
+            transform: rotate(180deg);
         }
 
         .method {
-            padding: 0.4rem 0.85rem;
+            padding: 0.45rem 0.95rem;
             border-radius: 8px;
-            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .method.get {
             background: linear-gradient(135deg, #22C55E, #16A34A);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
         }
 
         .method.post {
             background: linear-gradient(135deg, #3B82F6, #2563EB);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
         .endpoint-path {
-            font-family: 'Space Grotesk', monospace;
+            font-family: var(--font-mono);
             color: var(--primary-gold);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+        }
+
+        .endpoint-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+            flex: 1;
         }
 
         .endpoint-badge {
             margin-left: auto;
-            padding: 0.35rem 0.85rem;
-            background: rgba(0, 255, 245, 0.15);
-            border: 1px solid var(--accent-cyan);
+            padding: 0.4rem 1rem;
+            background: rgba(0, 255, 245, 0.12);
+            border: 1px solid rgba(0, 255, 245, 0.4);
             border-radius: 50px;
-            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
             font-weight: 700;
             color: var(--accent-cyan);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .endpoint-badge.purple {
-            background: rgba(157, 78, 221, 0.15);
-            border-color: var(--accent-purple);
+            background: rgba(157, 78, 221, 0.12);
+            border-color: rgba(157, 78, 221, 0.4);
             color: var(--accent-purple);
         }
 
         .endpoint-badge.gold {
-            background: rgba(255, 215, 0, 0.15);
-            border-color: var(--primary-gold);
+            background: rgba(255, 215, 0, 0.12);
+            border-color: rgba(255, 215, 0, 0.4);
             color: var(--primary-gold);
         }
 
         .endpoint-badge.cyan {
-            background: rgba(0, 255, 245, 0.15);
-            border-color: var(--accent-cyan);
+            background: rgba(0, 255, 245, 0.12);
+            border-color: rgba(0, 255, 245, 0.4);
             color: var(--accent-cyan);
         }
 
+        .endpoint-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .endpoint-card.expanded .endpoint-body {
+            max-height: 3000px;
+        }
+
         .endpoint-desc {
-            padding: 1rem 1.5rem;
+            padding: 1.25rem 1.5rem;
             color: var(--text-secondary);
             font-size: 0.95rem;
             border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+            line-height: 1.7;
         }
 
         .endpoint-details {
             padding: 1.5rem;
         }
 
-        .params-section, .example-section, .response-section {
-            margin-bottom: 1.5rem;
+        /* Collapsible Sections within Endpoints */
+        .collapsible-section {
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .params-section h4, .example-section h4, .response-section h4, .url-formats h4 {
+        .collapsible-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .collapsible-section.expanded .collapsible-header {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .collapsible-header h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-display);
             font-size: 0.85rem;
             color: var(--text-primary);
             font-weight: 700;
-            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin: 0;
+            flex: 1;
         }
 
-        .params-section h4 i, .example-section h4 i, .response-section h4 i, .url-formats h4 i {
+        .collapsible-header h4 i {
             color: var(--accent-cyan);
+            font-size: 0.95rem;
+        }
+
+        .collapsible-toggle {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .collapsible-section.expanded .collapsible-toggle {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-color: transparent;
+            color: var(--bg-dark);
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collapsible-section.expanded .collapsible-content {
+            max-height: 2000px;
+        }
+
+        .collapsible-inner {
+            padding: 1.25rem;
         }
 
         .params-table {
@@ -844,48 +1002,57 @@
 
         .params-table th {
             text-align: left;
-            padding: 0.75rem 1rem;
+            padding: 0.85rem 1rem;
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.75rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.2px;
         }
 
         .params-table td {
-            padding: 0.75rem 1rem;
+            padding: 0.85rem 1rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .params-table code {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 215, 0, 0.12);
             color: var(--primary-gold);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'Space Grotesk', monospace;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-family: var(--font-mono);
             font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .type-badge {
             display: inline-block;
-            padding: 0.2rem 0.6rem;
-            background: rgba(157, 78, 221, 0.2);
+            padding: 0.25rem 0.7rem;
+            background: rgba(157, 78, 221, 0.15);
             color: var(--accent-purple);
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .required-badge {
             display: inline-block;
-            padding: 0.2rem 0.6rem;
-            background: rgba(239, 68, 68, 0.2);
+            padding: 0.25rem 0.7rem;
+            background: rgba(239, 68, 68, 0.15);
             color: #FCA5A5;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .code-block {
@@ -900,12 +1067,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.75rem 1rem;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 0.85rem 1.25rem;
+            background: rgba(255, 255, 255, 0.04);
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
             color: var(--text-muted);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .code-header i {
@@ -914,6 +1084,7 @@
 
         .success-response .code-header {
             color: #86EFAC;
+            background: rgba(34, 197, 94, 0.08);
         }
 
         .success-response .code-header i {
@@ -922,6 +1093,7 @@
 
         .error-response .code-header {
             color: #FCA5A5;
+            background: rgba(239, 68, 68, 0.08);
         }
 
         .error-response .code-header i {
@@ -929,36 +1101,36 @@
         }
 
         .copy-code-btn {
-            background: none;
-            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             color: var(--text-muted);
             cursor: pointer;
-            padding: 0.25rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
         .copy-code-btn:hover {
             color: var(--accent-cyan);
+            background: rgba(0, 255, 245, 0.1);
+            border-color: var(--accent-cyan);
         }
 
         .code-block pre {
             margin: 0;
-            padding: 1rem;
+            padding: 1.25rem;
             overflow-x: auto;
         }
 
         .code-block code {
-            font-family: 'Space Grotesk', monospace;
+            font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 500;
         }
 
-        .url-formats {
-            margin-bottom: 1.5rem;
-        }
-
-        .format-list {
+        .url-formats-list {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
@@ -968,70 +1140,142 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 0.75rem 1rem;
+            padding: 0.85rem 1.25rem;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
             flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+
+        .format-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-cyan);
         }
 
         .format-item code {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 215, 0, 0.12);
             color: var(--primary-gold);
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-            font-family: 'Space Grotesk', monospace;
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
             font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .format-desc {
             color: var(--text-muted);
             font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        /* Response Reference */
+        /* Response Fields Reference - Collapsible */
         .response-reference {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 2rem;
             margin-bottom: 2rem;
+            overflow: hidden;
         }
 
-        .response-reference h3 {
+        .response-reference-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
         }
 
-        .response-reference h3 i {
+        .response-reference-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .response-reference.expanded .response-reference-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .response-reference-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            flex: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .response-reference-header h3 i {
             color: var(--primary-gold);
+        }
+
+        .ref-toggle {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .response-reference.expanded .ref-toggle {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-cyan));
+            border-color: transparent;
+            color: var(--bg-dark);
+            transform: rotate(180deg);
+        }
+
+        .response-reference-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .response-reference.expanded .response-reference-body {
+            max-height: 2000px;
+        }
+
+        .response-reference-inner {
+            padding: 2rem;
         }
 
         .reference-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
         .reference-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.25rem;
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .reference-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-cyan);
         }
 
         .reference-card h4 {
-            font-size: 0.9rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
             font-weight: 700;
             color: var(--accent-cyan);
             margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.85rem;
             border-bottom: 1px solid var(--border-color);
+            letter-spacing: 0.3px;
         }
 
         .reference-table {
@@ -1047,7 +1291,7 @@
         }
 
         .reference-table td {
-            padding: 0.6rem 0;
+            padding: 0.7rem 0;
             font-size: 0.85rem;
         }
 
@@ -1056,19 +1300,98 @@
         }
 
         .reference-table td:first-child code {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 215, 0, 0.12);
             color: var(--primary-gold);
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-family: 'Space Grotesk', monospace;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-family: var(--font-mono);
             font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .reference-table td:last-child {
             color: var(--text-muted);
+            font-weight: 500;
         }
 
-        /* API Notes */
+        /* API Notes - Collapsible */
+        .api-notes-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .api-notes-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .api-notes-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .api-notes-section.expanded .api-notes-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .api-notes-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            flex: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .api-notes-header h3 i {
+            color: var(--accent-purple);
+        }
+
+        .notes-toggle {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .api-notes-section.expanded .notes-toggle {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            border-color: transparent;
+            color: var(--bg-dark);
+            transform: rotate(180deg);
+        }
+
+        .api-notes-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .api-notes-section.expanded .api-notes-body {
+            max-height: 1000px;
+        }
+
+        .api-notes-inner {
+            padding: 2rem;
+        }
+
         .api-notes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1079,86 +1402,85 @@
             display: flex;
             gap: 1rem;
             padding: 1.25rem;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid;
+            transition: all 0.3s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
         }
 
         .note-card.warning {
-            background: rgba(251, 191, 36, 0.1);
+            background: rgba(251, 191, 36, 0.08);
             border-color: rgba(251, 191, 36, 0.3);
         }
 
+        .note-card.warning:hover {
+            border-color: rgba(251, 191, 36, 0.6);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.15);
+        }
+
         .note-card.info {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.08);
             border-color: rgba(59, 130, 246, 0.3);
         }
 
+        .note-card.info:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
         .note-card.success {
-            background: rgba(34, 197, 94, 0.1);
+            background: rgba(34, 197, 94, 0.08);
             border-color: rgba(34, 197, 94, 0.3);
         }
 
+        .note-card.success:hover {
+            border-color: rgba(34, 197, 94, 0.6);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.15);
+        }
+
         .note-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            font-size: 1.2rem;
+            border-radius: 12px;
+            font-size: 1.3rem;
             flex-shrink: 0;
         }
 
         .note-card.warning .note-icon {
-            background: rgba(251, 191, 36, 0.2);
+            background: rgba(251, 191, 36, 0.15);
             color: #FBBF24;
         }
 
         .note-card.info .note-icon {
-            background: rgba(59, 130, 246, 0.2);
+            background: rgba(59, 130, 246, 0.15);
             color: #3B82F6;
         }
 
         .note-card.success .note-icon {
-            background: rgba(34, 197, 94, 0.2);
+            background: rgba(34, 197, 94, 0.15);
             color: #22C55E;
         }
 
         .note-content h4 {
-            font-size: 0.9rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
         }
 
         .note-content p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .api-docs-section {
-                padding: 1.5rem 1rem;
-            }
-            .endpoint-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .endpoint-badge {
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
-            .params-table {
-                display: block;
-                overflow-x: auto;
-            }
-            .reference-grid {
-                grid-template-columns: 1fr;
-            }
-            .api-notes {
-                grid-template-columns: 1fr;
-            }
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 500;
         }
 
         /* Features Section */
@@ -1189,7 +1511,7 @@
         }
 
         .features-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 2.5rem;
@@ -1281,7 +1603,7 @@
         }
 
         .contact-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
             font-size: clamp(1.6rem, 4vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
@@ -1501,6 +1823,9 @@
             .download-actions .btn-premium {
                 min-width: 100%;
             }
+            .endpoint-title {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1512,9 +1837,15 @@
                 height: 18px;
             }
             .downloader-section,
-            .endpoints-section,
+            .api-docs-section,
             .features-section {
                 padding: 1.5rem 1rem;
+            }
+            .endpoint-header {
+                padding: 1rem;
+            }
+            .endpoint-badge {
+                display: none;
             }
         }
 
@@ -1711,11 +2042,11 @@
                 <!-- Messages -->
                 <div class="message error" id="errorMessage">
                     <i class="fad fa-circle-exclamation"></i>
-                    <span id="errorText"></span>
+                    <span id="errorText">An error occurred</span>
                 </div>
                 <div class="message success" id="successMessage">
                     <i class="fad fa-check-circle"></i>
-                    <span id="successText"></span>
+                    <span id="successText">Operation successful</span>
                 </div>
 
                 <!-- Results -->
@@ -1724,246 +2055,333 @@
                 </div>
             </div>
 
-            <!-- API Documentation -->
+            <!-- API Documentation Section -->
             <div class="api-docs-section">
                 <div class="api-header">
-                    <h2><i class="fad fa-book-open"></i> API Documentation</h2>
-                    <p class="api-subtitle">Complete REST API reference with examples and response formats</p>
+                    <h2>
+                        <i class="fad fa-book-open"></i>
+                        API Documentation
+                        <span class="api-version-badge"><i class="fad fa-code-branch"></i> v1.0</span>
+                    </h2>
+                    <p class="api-subtitle">Comprehensive RESTful API for downloading and managing Telegram stories</p>
                     <div class="api-base-url">
                         <span class="label">Base URL</span>
                         <code id="apiBaseDisplay"></code>
-                        <button class="copy-btn" onclick="copyApiBase()"><i class="fad fa-copy"></i></button>
+                        <button class="copy-btn" onclick="copyApiBase()" title="Copy to clipboard">
+                            <i class="fad fa-copy"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Endpoint 1: Current Stories -->
-                <div class="endpoint-card">
-                    <div class="endpoint-header">
+                <div class="endpoint-card" id="endpoint1">
+                    <div class="endpoint-header" onclick="toggleEndpoint('endpoint1')">
+                        <div class="endpoint-toggle"><i class="fad fa-chevron-down"></i></div>
                         <span class="method get">GET</span>
                         <span class="endpoint-path">/api/current</span>
-                        <span class="endpoint-badge">Active Stories</span>
+                        <span class="endpoint-title">— Fetch active stories</span>
+                        <span class="endpoint-badge purple">List Stories</span>
                     </div>
-                    <p class="endpoint-desc">Fetch all currently active (non-expired) stories from a Telegram user or channel.</p>
-                    
-                    <div class="endpoint-details">
-                        <div class="params-section">
-                            <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
-                            <table class="params-table">
-                                <thead>
-                                    <tr>
-                                        <th>Parameter</th>
-                                        <th>Type</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>username</code></td>
-                                        <td><span class="type-badge">string</span></td>
-                                        <td><span class="required-badge">Yes</span></td>
-                                        <td>Telegram username without @ symbol</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="example-section">
-                            <h4><i class="fad fa-terminal"></i> Example Request</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>cURL</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                    <div class="endpoint-body">
+                        <p class="endpoint-desc">Retrieve all currently active (non-expired) stories from a Telegram user. Returns metadata for each story including ID, type, date, and caption.</p>
+                        
+                        <div class="endpoint-details">
+                            <!-- Parameters -->
+                            <div class="collapsible-section expanded" id="endpoint1-params">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint1-params')">
+                                    <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/current?username=durov"</code></pre>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <table class="params-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Parameter</th>
+                                                    <th>Type</th>
+                                                    <th>Required</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>username</code></td>
+                                                    <td><span class="type-badge">string</span></td>
+                                                    <td><span class="required-badge">Yes</span></td>
+                                                    <td>Telegram username without @ symbol</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="response-section">
-                            <h4><i class="fad fa-reply"></i> Response Format</h4>
-                            <div class="code-block success-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-check-circle"></i> 200 OK</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                            <!-- Example -->
+                            <div class="collapsible-section" id="endpoint1-example">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint1-example')">
+                                    <h4><i class="fad fa-terminal"></i> Example Request</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>{
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-terminal"></i> cURL</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/current?username=durov"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Response -->
+                            <div class="collapsible-section" id="endpoint1-response">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint1-response')">
+                                    <h4><i class="fad fa-reply"></i> Response Format</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block success-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-check-circle"></i> 200 OK — Success</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>{
   "success": true,
   "username": "durov",
-  "count": 2,
+  "count": 3,
   "stories": [
     {
       "story_id": 1234,
       "type": "Active",
       "date": "2026-01-09 14:30:00",
       "timestamp": 1736432200,
-      "caption": "Story caption text here",
+      "caption": "Check out this update!",
       "has_media": true
     }
   ],
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
-                            </div>
-                            <div class="code-block error-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-times-circle"></i> 500 Error</span>
-                                </div>
-                                <pre><code>{
+                                        </div>
+                                        <div class="code-block error-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-times-circle"></i> 500 Error — Server Error</span>
+                                            </div>
+                                            <pre><code>{
   "success": false,
-  "error": "Error message description",
+  "error": "Client initialization failed",
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Endpoint 2: All Stories -->
-                <div class="endpoint-card">
-                    <div class="endpoint-header">
+                <div class="endpoint-card" id="endpoint2">
+                    <div class="endpoint-header" onclick="toggleEndpoint('endpoint2')">
+                        <div class="endpoint-toggle"><i class="fad fa-chevron-down"></i></div>
                         <span class="method get">GET</span>
                         <span class="endpoint-path">/api/all</span>
-                        <span class="endpoint-badge purple">All Stories</span>
+                        <span class="endpoint-title">— Fetch all stories</span>
+                        <span class="endpoint-badge cyan">Full Archive</span>
                     </div>
-                    <p class="endpoint-desc">Retrieve all stories including active, pinned, and archived stories from a user's profile.</p>
-                    
-                    <div class="endpoint-details">
-                        <div class="params-section">
-                            <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
-                            <table class="params-table">
-                                <thead>
-                                    <tr>
-                                        <th>Parameter</th>
-                                        <th>Type</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>username</code></td>
-                                        <td><span class="type-badge">string</span></td>
-                                        <td><span class="required-badge">Yes</span></td>
-                                        <td>Telegram username without @ symbol</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="example-section">
-                            <h4><i class="fad fa-terminal"></i> Example Request</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>cURL</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                    <div class="endpoint-body">
+                        <p class="endpoint-desc">Retrieve all stories including active, pinned, and archived stories from a Telegram user. Provides comprehensive access to a user's complete story history.</p>
+                        
+                        <div class="endpoint-details">
+                            <!-- Parameters -->
+                            <div class="collapsible-section expanded" id="endpoint2-params">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint2-params')">
+                                    <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/all?username=telegram"</code></pre>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <table class="params-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Parameter</th>
+                                                    <th>Type</th>
+                                                    <th>Required</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>username</code></td>
+                                                    <td><span class="type-badge">string</span></td>
+                                                    <td><span class="required-badge">Yes</span></td>
+                                                    <td>Telegram username without @ symbol</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="response-section">
-                            <h4><i class="fad fa-reply"></i> Response Format</h4>
-                            <div class="code-block success-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-check-circle"></i> 200 OK</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                            <!-- Example -->
+                            <div class="collapsible-section" id="endpoint2-example">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint2-example')">
+                                    <h4><i class="fad fa-terminal"></i> Example Request</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>{
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-terminal"></i> cURL</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/all?username=durov"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Response -->
+                            <div class="collapsible-section" id="endpoint2-response">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint2-response')">
+                                    <h4><i class="fad fa-reply"></i> Response Format</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block success-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-check-circle"></i> 200 OK — Success</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>{
   "success": true,
-  "username": "telegram",
-  "total_count": 15,
+  "username": "durov",
+  "total_count": 25,
   "stories": [
     {
-      "story_id": 5678,
+      "story_id": 1234,
       "type": "Active",
-      "date": "2026-01-09 10:00:00",
-      "timestamp": 1736416000,
+      "date": "2026-01-09 14:30:00",
+      "timestamp": 1736432200,
       "caption": "Latest update!",
       "has_media": true
     },
     {
-      "story_id": 5677,
+      "story_id": 1200,
       "type": "Pinned",
-      "date": "2026-01-08 18:30:00",
-      "timestamp": 1736360200,
-      "caption": "Pinned announcement",
+      "date": "2026-01-01 10:00:00",
+      "timestamp": 1735689600,
+      "caption": "Important announcement",
       "has_media": true
     },
     {
-      "story_id": 5670,
+      "story_id": 1100,
       "type": "Archived",
-      "date": "2026-01-05 12:00:00",
-      "timestamp": 1736078400,
-      "caption": "Old story",
+      "date": "2025-12-25 18:00:00",
+      "timestamp": 1735149600,
+      "caption": "",
       "has_media": true
     }
   ],
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Endpoint 3: Specific Story -->
-                <div class="endpoint-card">
-                    <div class="endpoint-header">
+                <div class="endpoint-card" id="endpoint3">
+                    <div class="endpoint-header" onclick="toggleEndpoint('endpoint3')">
+                        <div class="endpoint-toggle"><i class="fad fa-chevron-down"></i></div>
                         <span class="method get">GET</span>
                         <span class="endpoint-path">/api/special</span>
-                        <span class="endpoint-badge gold">Download Story</span>
+                        <span class="endpoint-title">— Download specific story</span>
+                        <span class="endpoint-badge gold">Download</span>
                     </div>
-                    <p class="endpoint-desc">Download a specific story by providing username and story ID. Returns a temporary download URL valid for 60 minutes.</p>
-                    
-                    <div class="endpoint-details">
-                        <div class="params-section">
-                            <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
-                            <table class="params-table">
-                                <thead>
-                                    <tr>
-                                        <th>Parameter</th>
-                                        <th>Type</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>username</code></td>
-                                        <td><span class="type-badge">string</span></td>
-                                        <td><span class="required-badge">Yes</span></td>
-                                        <td>Telegram username without @ symbol</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>storyid</code></td>
-                                        <td><span class="type-badge">integer</span></td>
-                                        <td><span class="required-badge">Yes</span></td>
-                                        <td>Unique story identifier (numeric)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="example-section">
-                            <h4><i class="fad fa-terminal"></i> Example Request</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>cURL</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                    <div class="endpoint-body">
+                        <p class="endpoint-desc">Download a specific story by providing username and story ID. Returns a temporary download URL valid for 60 minutes along with complete story metadata.</p>
+                        
+                        <div class="endpoint-details">
+                            <!-- Parameters -->
+                            <div class="collapsible-section expanded" id="endpoint3-params">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint3-params')">
+                                    <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/special?username=durov&storyid=1234"</code></pre>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <table class="params-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Parameter</th>
+                                                    <th>Type</th>
+                                                    <th>Required</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>username</code></td>
+                                                    <td><span class="type-badge">string</span></td>
+                                                    <td><span class="required-badge">Yes</span></td>
+                                                    <td>Telegram username without @ symbol</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code>storyid</code></td>
+                                                    <td><span class="type-badge">integer</span></td>
+                                                    <td><span class="required-badge">Yes</span></td>
+                                                    <td>Unique story identifier (numeric)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="response-section">
-                            <h4><i class="fad fa-reply"></i> Response Format</h4>
-                            <div class="code-block success-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-check-circle"></i> 200 OK</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                            <!-- Example -->
+                            <div class="collapsible-section" id="endpoint3-example">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint3-example')">
+                                    <h4><i class="fad fa-terminal"></i> Example Request</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>{
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-terminal"></i> cURL</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/special?username=durov&storyid=1234"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Response -->
+                            <div class="collapsible-section" id="endpoint3-response">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint3-response')">
+                                    <h4><i class="fad fa-reply"></i> Response Format</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block success-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-check-circle"></i> 200 OK — Success</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>{
   "success": true,
   "username": "durov",
   "story_id": 1234,
@@ -1977,91 +2395,127 @@
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
-                            </div>
-                            <div class="code-block error-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-times-circle"></i> 404 Not Found</span>
-                                </div>
-                                <pre><code>{
+                                        </div>
+                                        <div class="code-block error-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-times-circle"></i> 404 Not Found</span>
+                                            </div>
+                                            <pre><code>{
   "success": false,
   "error": "Story not found or download failed",
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Endpoint 4: Direct URL -->
-                <div class="endpoint-card">
-                    <div class="endpoint-header">
+                <div class="endpoint-card" id="endpoint4">
+                    <div class="endpoint-header" onclick="toggleEndpoint('endpoint4')">
+                        <div class="endpoint-toggle"><i class="fad fa-chevron-down"></i></div>
                         <span class="method get">GET</span>
                         <span class="endpoint-path">/api/direct</span>
+                        <span class="endpoint-title">— Download via URL</span>
                         <span class="endpoint-badge cyan">Direct Link</span>
                     </div>
-                    <p class="endpoint-desc">Download story directly using a Telegram story URL. Automatically parses username and story ID from the URL.</p>
-                    
-                    <div class="endpoint-details">
-                        <div class="params-section">
-                            <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
-                            <table class="params-table">
-                                <thead>
-                                    <tr>
-                                        <th>Parameter</th>
-                                        <th>Type</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>url</code></td>
-                                        <td><span class="type-badge">string</span></td>
-                                        <td><span class="required-badge">Yes</span></td>
-                                        <td>Full Telegram story URL (URL-encoded)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="url-formats">
-                            <h4><i class="fad fa-link"></i> Supported URL Formats</h4>
-                            <div class="format-list">
-                                <div class="format-item">
-                                    <code>https://t.me/username/s/storyid</code>
-                                    <span class="format-desc">Standard story link</span>
+                    <div class="endpoint-body">
+                        <p class="endpoint-desc">Download story directly using a Telegram story URL. Automatically parses username and story ID from the URL. Supports multiple URL formats.</p>
+                        
+                        <div class="endpoint-details">
+                            <!-- Parameters -->
+                            <div class="collapsible-section expanded" id="endpoint4-params">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint4-params')">
+                                    <h4><i class="fad fa-sliders-h"></i> Query Parameters</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <div class="format-item">
-                                    <code>https://telegram.me/username/s/storyid</code>
-                                    <span class="format-desc">Alternative domain</span>
-                                </div>
-                                <div class="format-item">
-                                    <code>https://t.me/c/channelid/storyid</code>
-                                    <span class="format-desc">Private channel story</span>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <table class="params-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Parameter</th>
+                                                    <th>Type</th>
+                                                    <th>Required</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>url</code></td>
+                                                    <td><span class="type-badge">string</span></td>
+                                                    <td><span class="required-badge">Yes</span></td>
+                                                    <td>Full Telegram story URL (URL-encoded)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="example-section">
-                            <h4><i class="fad fa-terminal"></i> Example Request</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>cURL</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                            <!-- Supported Formats -->
+                            <div class="collapsible-section" id="endpoint4-formats">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint4-formats')">
+                                    <h4><i class="fad fa-link"></i> Supported URL Formats</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/direct?url=https://t.me/durov/s/1234"</code></pre>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="url-formats-list">
+                                            <div class="format-item">
+                                                <code>https://t.me/username/s/storyid</code>
+                                                <span class="format-desc">Standard story link format</span>
+                                            </div>
+                                            <div class="format-item">
+                                                <code>https://telegram.me/username/s/storyid</code>
+                                                <span class="format-desc">Alternative domain format</span>
+                                            </div>
+                                            <div class="format-item">
+                                                <code>https://t.me/c/channelid/storyid</code>
+                                                <span class="format-desc">Private channel story format</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="response-section">
-                            <h4><i class="fad fa-reply"></i> Response Format</h4>
-                            <div class="code-block success-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-check-circle"></i> 200 OK</span>
-                                    <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                            <!-- Example -->
+                            <div class="collapsible-section" id="endpoint4-example">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint4-example')">
+                                    <h4><i class="fad fa-terminal"></i> Example Request</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
                                 </div>
-                                <pre><code>{
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-terminal"></i> cURL</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>curl -X GET "<span class="api-base-placeholder"></span>/api/direct?url=https://t.me/durov/s/1234"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Response -->
+                            <div class="collapsible-section" id="endpoint4-response">
+                                <div class="collapsible-header" onclick="toggleCollapsible('endpoint4-response')">
+                                    <h4><i class="fad fa-reply"></i> Response Format</h4>
+                                    <div class="collapsible-toggle"><i class="fad fa-chevron-down"></i></div>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <div class="code-block success-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-check-circle"></i> 200 OK — Success</span>
+                                                <button class="copy-code-btn" onclick="copyCode(this)"><i class="fad fa-copy"></i></button>
+                                            </div>
+                                            <pre><code>{
   "success": true,
   "username": "durov",
   "story_id": 1234,
@@ -2076,113 +2530,133 @@
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
-                            </div>
-                            <div class="code-block error-response">
-                                <div class="code-header">
-                                    <span><i class="fad fa-times-circle"></i> 400 Bad Request</span>
-                                </div>
-                                <pre><code>{
+                                        </div>
+                                        <div class="code-block error-response">
+                                            <div class="code-header">
+                                                <span><i class="fad fa-times-circle"></i> 400 Bad Request</span>
+                                            </div>
+                                            <pre><code>{
   "success": false,
   "error": "Invalid Telegram story URL format. Expected: https://t.me/username/s/storyid",
   "api_dev": "@ISmartCoder",
   "api_channel": "@abirxdhackz"
 }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Response Fields Reference -->
-                <div class="response-reference">
-                    <h3><i class="fad fa-book"></i> Response Fields Reference</h3>
-                    <div class="reference-grid">
-                        <div class="reference-card">
-                            <h4>Common Fields</h4>
-                            <table class="reference-table">
-                                <tr>
-                                    <td><code>success</code></td>
-                                    <td>Boolean indicating request status</td>
-                                </tr>
-                                <tr>
-                                    <td><code>error</code></td>
-                                    <td>Error message (only on failure)</td>
-                                </tr>
-                                <tr>
-                                    <td><code>api_dev</code></td>
-                                    <td>API developer contact</td>
-                                </tr>
-                                <tr>
-                                    <td><code>api_channel</code></td>
-                                    <td>Official Telegram channel</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="reference-card">
-                            <h4>Story Object</h4>
-                            <table class="reference-table">
-                                <tr>
-                                    <td><code>story_id</code></td>
-                                    <td>Unique story identifier</td>
-                                </tr>
-                                <tr>
-                                    <td><code>type</code></td>
-                                    <td>Active | Pinned | Archived</td>
-                                </tr>
-                                <tr>
-                                    <td><code>media_type</code></td>
-                                    <td>photo | video | document</td>
-                                </tr>
-                                <tr>
-                                    <td><code>caption</code></td>
-                                    <td>Story caption text (may be empty)</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="reference-card">
-                            <h4>Download Fields</h4>
-                            <table class="reference-table">
-                                <tr>
-                                    <td><code>download_url</code></td>
-                                    <td>Temporary file download link</td>
-                                </tr>
-                                <tr>
-                                    <td><code>expires_in</code></td>
-                                    <td>Link expiration time (60 min)</td>
-                                </tr>
-                                <tr>
-                                    <td><code>date</code></td>
-                                    <td>Human-readable date string</td>
-                                </tr>
-                                <tr>
-                                    <td><code>timestamp</code></td>
-                                    <td>Unix timestamp (seconds)</td>
-                                </tr>
-                            </table>
+                <!-- Response Fields Reference - Collapsible -->
+                <div class="response-reference" id="responseRef">
+                    <div class="response-reference-header" onclick="toggleResponseRef()">
+                        <h3><i class="fad fa-book"></i> Response Fields Reference</h3>
+                        <div class="ref-toggle"><i class="fad fa-chevron-down"></i></div>
+                    </div>
+                    <div class="response-reference-body">
+                        <div class="response-reference-inner">
+                            <div class="reference-grid">
+                                <div class="reference-card">
+                                    <h4>Common Fields</h4>
+                                    <table class="reference-table">
+                                        <tr>
+                                            <td><code>success</code></td>
+                                            <td>Boolean indicating request status</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>error</code></td>
+                                            <td>Error message (only on failure)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>api_dev</code></td>
+                                            <td>API developer contact</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>api_channel</code></td>
+                                            <td>Official Telegram channel</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="reference-card">
+                                    <h4>Story Object</h4>
+                                    <table class="reference-table">
+                                        <tr>
+                                            <td><code>story_id</code></td>
+                                            <td>Unique story identifier</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>type</code></td>
+                                            <td>Active | Pinned | Archived</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>media_type</code></td>
+                                            <td>photo | video | document</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>caption</code></td>
+                                            <td>Story caption text (may be empty)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="reference-card">
+                                    <h4>Download Fields</h4>
+                                    <table class="reference-table">
+                                        <tr>
+                                            <td><code>download_url</code></td>
+                                            <td>Temporary file download link</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>expires_in</code></td>
+                                            <td>Link expiration time (60 min)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>date</code></td>
+                                            <td>Human-readable date string</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>timestamp</code></td>
+                                            <td>Unix timestamp (seconds)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Rate Limits & Notes -->
-                <div class="api-notes">
-                    <div class="note-card warning">
-                        <div class="note-icon"><i class="fad fa-exclamation-triangle"></i></div>
-                        <div class="note-content">
-                            <h4>Rate Limiting</h4>
-                            <p>API requests are subject to Telegram's rate limits. Excessive requests may result in temporary blocks. Recommended: max 30 requests/minute.</p>
-                        </div>
+                <!-- API Notes - Collapsible -->
+                <div class="api-notes-section" id="apiNotes">
+                    <div class="api-notes-header" onclick="toggleApiNotes()">
+                        <h3><i class="fad fa-info-circle"></i> Important Notes & Limits</h3>
+                        <div class="notes-toggle"><i class="fad fa-chevron-down"></i></div>
                     </div>
-                    <div class="note-card info">
-                        <div class="note-icon"><i class="fad fa-info-circle"></i></div>
-                        <div class="note-content">
-                            <h4>Download Links</h4>
-                            <p>Download URLs are temporary and expire after 60 minutes. Store content locally if needed for longer periods.</p>
-                        </div>
-                    </div>
-                    <div class="note-card success">
-                        <div class="note-icon"><i class="fad fa-shield-check"></i></div>
-                        <div class="note-content">
-                            <h4>Authentication</h4>
-                            <p>No API key required. All endpoints are publicly accessible. For private channels, ensure the bot has access.</p>
+                    <div class="api-notes-body">
+                        <div class="api-notes-inner">
+                            <div class="api-notes">
+                                <div class="note-card warning">
+                                    <div class="note-icon"><i class="fad fa-exclamation-triangle"></i></div>
+                                    <div class="note-content">
+                                        <h4>Rate Limiting</h4>
+                                        <p>API requests are subject to Telegram's rate limits. Excessive requests may result in temporary blocks. Recommended: max 30 requests/minute.</p>
+                                    </div>
+                                </div>
+                                <div class="note-card info">
+                                    <div class="note-icon"><i class="fad fa-clock"></i></div>
+                                    <div class="note-content">
+                                        <h4>Download Link Expiry</h4>
+                                        <p>Download URLs are temporary and expire after 60 minutes. Store content locally if you need it for longer periods.</p>
+                                    </div>
+                                </div>
+                                <div class="note-card success">
+                                    <div class="note-icon"><i class="fad fa-shield-check"></i></div>
+                                    <div class="note-content">
+                                        <h4>No Authentication Required</h4>
+                                        <p>All endpoints are publicly accessible without API keys. For private channels, ensure the service account has access.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2301,6 +2775,31 @@
             });
         });
 
+        // Toggle endpoint card
+        function toggleEndpoint(id) {
+            const card = document.getElementById(id);
+            card.classList.toggle('expanded');
+        }
+
+        // Toggle collapsible section
+        function toggleCollapsible(id) {
+            event.stopPropagation();
+            const section = document.getElementById(id);
+            section.classList.toggle('expanded');
+        }
+
+        // Toggle response reference
+        function toggleResponseRef() {
+            const ref = document.getElementById('responseRef');
+            ref.classList.toggle('expanded');
+        }
+
+        // Toggle API notes
+        function toggleApiNotes() {
+            const notes = document.getElementById('apiNotes');
+            notes.classList.toggle('expanded');
+        }
+
         // Copy API base
         function copyApiBase() {
             navigator.clipboard.writeText(API_BASE).then(() => {
@@ -2310,6 +2809,7 @@
 
         // Copy code block
         function copyCode(btn) {
+            event.stopPropagation();
             const codeBlock = btn.closest('.code-block').querySelector('code');
             const text = codeBlock.textContent.replace(API_BASE, API_BASE);
             navigator.clipboard.writeText(text).then(() => {
